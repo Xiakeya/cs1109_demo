@@ -1,37 +1,8 @@
+#include "Board.h"
+#include "Player.h"
 #include <iostream>
-#include <vector>
 #include <string>
-
-struct Position {
-    int x;
-    int y;
-};
-
-void afficherEtat(const Position& joueur,
-                  const std::vector<Position>& obstacles, int score) {
-    std::cout << "Score : " << score << '\n';
-    std::cout << "Joueur : (" << joueur.x << ", " << joueur.y << ")\n";
-    for (const auto& obs : obstacles) {
-        std::cout << "Obstacle : (" << obs.x << ", " << obs.y << ")\n";
-    }
-}
-
-void traiterCommande(const std::string& cmd, Position& joueur, int& score) {
-    if (cmd == "avance") {
-        joueur.x += 1;
-        score += 1;
-    }
-}
-
-bool verifierCollision(const Position& joueur,
-                      const std::vector<Position>& obstacles) {
-    for (const auto& obs : obstacles) {
-        if (joueur.x == obs.x && joueur.y == obs.y) {
-            return true;
-        }
-    }
-    return false;
-}
+#include <vector>
 
 int main() {
     std::cout << "Runner CS.1109\n1. Jouer\n2. Quitter\nChoix ? ";
